@@ -54,12 +54,6 @@
                   <small>{{ item.variant.title }}</small>
                 {% endunless %}
 
-
-                {% for p in item.properties %}
-                  <p>{{ p.first }}:{{ p.last }}</p>
-                {% endfor %}
-                
-
                 {% if settings.cart_vendor_enable %}
                   <p>{{ item.vendor }}</p>
                 {% endif %}
