@@ -1,11 +1,5 @@
 <!-- /templates/cart.liquid -->
-{% comment %}
 
-  For info on test orders:
-    - General http://docs.shopify.com/manual/your-store/orders/test-orders
-    - Shopify Payments - http://docs.shopify.com/manual/more/shopify-payments/testing-shopify-payments
-
-{% endcomment %}
 {% if cart.item_count > 0 %}
 
   <form action="/cart" method="post" novalidate class="cart">
@@ -37,9 +31,6 @@
       </div>
     </div>
 
-    {% comment %}
-      Loop through products in the cart
-    {% endcomment %}
     {% for item in cart.items %}
       <div class="cart__row">
         <div class="grid--full cart__row--table-large">
@@ -50,10 +41,6 @@
               <div class="grid__item one-third">
                 <a href="{{ item.url | within: collections.all }}" class="cart__image">
 
-                  {% comment %}
-                    More image size options at:
-                      - http://docs.shopify.com/themes/filters/product-img-url
-                  {% endcomment %}
                   <img src="{{ item | img_url: 'medium' }}" alt="{{ item.title | escape }}">
                 </a>
               </div>
@@ -67,25 +54,21 @@
                   <small>{{ item.variant.title }}</small>
                 {% endunless %}
 
+                {% for p in item.properties %}
+                  {{ p.first }}:{{ p.last }}
+                  <br />
+                {% endfor %}
+
                 {% if settings.cart_vendor_enable %}
                   <p>{{ item.vendor }}</p>
                 {% endif %}
 
-                {% comment %}
-                  Optional, loop through custom product line items if available
-
-                  For more info on line item properties, visit:
-                    - http://docs.shopify.com/support/your-store/products/how-do-I-collect-additional-information-on-the-product-page-Like-for-a-monogram-engraving-or-customization
-                {% endcomment %}
                 {% assign property_size = item.properties | size %}
                 {% if property_size > 0 %}
                   {% for p in item.properties %}
                     {% unless p.last == blank %}
                       {{ p.first }}:
 
-                      {% comment %}
-                        Check if there was an uploaded file associated
-                      {% endcomment %}
                       {% if p.last contains '/uploads/' %}
                         <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
                       {% else %}
@@ -132,11 +115,6 @@
 
     <div class="cart__row">
       <div class="grid">
-        {% comment %}
-          Optional, add a textarea for special notes
-            - Your theme settings can turn this on or off. Default is on.
-            - Make sure you have name="note" for the message to be submitted properly
-        {% endcomment %}
         {% if settings.cart_notes_enable %}
           <div class="grid__item large--one-half">
             <label for="CartSpecialInstructions">{{ 'cart.general.note' | t }}</label>
