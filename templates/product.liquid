@@ -1,5 +1,12 @@
 <!-- /templates/product.liquid -->
 
+<style>
+  input[type="button"] {
+    font-size:16px;
+    padding:10px 4px;
+  }
+</style>
+
 <div itemscope itemtype="http://schema.org/Product">
 
   <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
@@ -72,6 +79,17 @@
           <div>
             <p><label for="monogram">Monogram:</label></p>
             <p><input type="text" id="monogram" name="properties[Monogram]" /></p>
+
+            <p>Type of Fit: <select id="fit" name="properties[fit]">
+                <option value="slim">Slim</option>
+                <option value="regular">Regular</option>
+                <option value="loose">Loose</option>
+              </select>
+            </p>
+
+            <p>Colar: <input type="number" id="colar" name="properties[colar]" min="10" max="30" value="14" step=".5"></p>
+            
+            <p>Chest: <input type="number" id="chest" name="properties[chest]" min="10" max="30" value="19.5" step=".5"></p>
           </div>
 
           <button type="submit" name="add" id="AddToCart" class="btn">
