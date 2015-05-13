@@ -71,6 +71,7 @@
           <label for="Quantity" class="quantity-selector">{{ 'products.product.quantity' | t }}</label>
           <input type="number" id="Quantity" name="quantity" value="1" min="1" class="quantity-selector">
 
+          <!-- 
           <div>
             <p><label for="monogram">Monogram:</label></p>
             <p><input type="text" id="monogram" name="properties[Monogram]" /></p>
@@ -81,11 +82,8 @@
                 <option value="loose">Loose</option>
               </select>
             </p>
-
             <p>Colar: <input type="number" id="colar" name="properties[colar]" min="10" max="30" value="14" step=".5"></p>
-
             <p>Chest: <input type="number" id="chest" name="properties[chest]" min="10" max="30" value="19.5" step=".5"></p>
-
             <p>Waist: <input type="number" id="waist" name="properties[waist]" min="10" max="30" value="14" step=".5"></p>
             <p>Cuff: <input type="number" id="cuff" name="properties[cuff]" min="10" max="30" value="14" step=".5"></p>
             <p>Shoulder: <input type="number" id="shoulder" name="properties[shoulder]" min="10" max="30" value="14" step=".5"></p>
@@ -93,6 +91,7 @@
             <p>Shirt Length: <input type="number" id="slength" name="properties[length]" min="10" max="30" value="19.5" step=".5"></p>
             <p>Bicep: <input type="number" id="bicep" name="properties[bicep]" min="10" max="30" value="14" step=".5"></p>
           </div>
+          -->
 
           <button type="submit" name="add" id="AddToCart" class="btn">
             <span id="AddToCartText">{{ 'products.product.add_to_cart' | t }}</span>
@@ -185,6 +184,48 @@
               <p><input type="text" id="monogram" name="properties[Monogram]" /></p>
             </li>
           </ul>
+          <ul>
+            <li>
+              <p>Type of Fit: <select id="fit" name="properties[fit]">
+                <option value="slim">Slim</option>
+                <option value="regular">Regular</option>
+                <option value="loose">Loose</option>
+              </select>
+              </p>
+            </li>
+
+            <li>
+              <p>Colar: <input type="number" id="colar" name="properties[colar]" min="10" max="30" value="14" step=".5"></p>
+            </li>
+
+            <li>
+              <p>Chest: <input type="number" id="chest" name="properties[chest]" min="10" max="30" value="19.5" step=".5"></p>
+            </li>
+
+            <li>
+              <p>Waist: <input type="number" id="waist" name="properties[waist]" min="10" max="30" value="14" step=".5"></p>
+            </li>
+
+            <li>
+              <p>Cuff: <input type="number" id="cuff" name="properties[cuff]" min="10" max="30" value="14" step=".5"></p>
+            </li>
+
+            <li>
+              <p>Shoulder: <input type="number" id="shoulder" name="properties[shoulder]" min="10" max="30" value="14" step=".5"></p>
+            </li>
+
+            <li>
+              <p>Sleeve: <input type="number" id="sleeve" name="properties[sleeve]" min="10" max="30" value="14" step=".5"></p>
+            </li>
+
+            <li>
+              <p>Shirt Length: <input type="number" id="slength" name="properties[length]" min="10" max="30" value="19.5" step=".5"></p>
+            </li>
+
+            <li>
+              <p>Bicep: <input type="number" id="bicep" name="properties[bicep]" min="10" max="30" value="14" step=".5"></p>
+            </li>
+          </ul>
           <nav>
             <a href="#">Collar</a>
             <a href="#">Cuffs</a>
@@ -194,6 +235,7 @@
             <a href="#">Yoke</a>
             <a href="#">Buttons</a>
             <a href="#">Monogram</a>
+            <a href="#">Measurements</a>
           </nav>
         </div>
       </div>
