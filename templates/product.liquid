@@ -164,6 +164,16 @@
       </div>
   </div><!-- /container -->
 
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script src="http://the212.co/tmblack/js/jquery.catslider.js"></script>
+  <script>
+    $(function() {
+
+      $( '#mi-slider' ).catslider();
+
+    });
+  </script>
+
 </div>
 
 {{ 'option_selection.js' | shopify_asset_url | script_tag }}
