@@ -248,6 +248,12 @@
 
       $( '#mi-slider' ).catslider();
 
+      $('.mi-slider ul li').click(function() {
+        $(this).siblings().removeClass('active');
+        $(this).addClass('active');
+      });
+
+
     });
   </script>
 
