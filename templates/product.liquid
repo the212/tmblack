@@ -232,10 +232,12 @@
         var option_choice = $(this).attr('class').split(' ')[1];
         $('#' + option_type).val(option_choice);
 
-        if (option_choice == 'mother-of-pearl') {
-          $('#productSelect-option-1').val('Mother of Pearl').trigger('change');
-        } else {
-          $('#productSelect-option-1').val('Normal').trigger('change');
+        if (option_type == 'buttons') {
+          if (option_choice == 'mother-of-pearl') {
+            $('#productSelect-option-1').val('Mother of Pearl').trigger('change');
+          } else {
+            $('#productSelect-option-1').val('Normal').trigger('change');
+          }
         }
 
       });
