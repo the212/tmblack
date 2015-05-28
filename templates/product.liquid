@@ -45,11 +45,11 @@
 
           <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm" class="form-vertical">
 
-            <select name="id" id="productSelect" class="product-single__variants" style="display:none;">
+            <select name="id" id="productSelect" class="product-single__variants">
               {% for variant in product.variants %}
                 {% if variant.available %}
 
-                  <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
+                  <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} value="{{ variant.id }}" style="display:none;">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
 
                 {% else %}
                   <option disabled="disabled">
@@ -88,31 +88,11 @@
 
         </div>
 
+        <!-- 
         <div class="product-description rte" itemprop="description">
           {{ product.description }}
         </div>
-
-        {% if collection %}
-          {% if collection.previous_product or collection.next_product %}
-            <p>
-
-            {% if collection.previous_product %}
-              {% capture prev_url %}{{ collection.previous_product}}#content{% endcapture %}
-              <span class="left">
-                {{ 'products.general.previous_product_html' | t | link_to: prev_url }}
-              </span>
-            {% endif %}
-
-            {% if collection.next_product %}
-              {% capture next_url %}{{ collection.next_product}}#content{% endcapture %}
-              <span class="right">
-                {{ 'products.general.next_product_html' | t | link_to: next_url }}
-              </span>
-            {% endif %}
-
-            </p>
-          {% endif %}
-        {% endif %}
+        -->
 
       </div>
   </div> <!-- end product-single -->
