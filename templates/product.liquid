@@ -237,8 +237,12 @@
       $('#monogram-option').change(function() {
           if($(this).is(":checked")) {
               $('.monogram-text').show();
+
+              // Monogram variant
+              $('#productSelect-option-0').val('Custom');
           } else {
             $('.monogram-text').hide();
+            $('#productSelect-option-0').val('None');
           }     
       });
 
