@@ -149,10 +149,9 @@
  
           <ul>
             <li>
-              <p><label for="monogram-option">Add Monogram for $10</label></p>
-              <p><input type="checkbox" id="monogram-option" name="monogram-option" /></p>
-              <p><label for="monogram">Monogram:</label></p>
-              <p><input type="text" id="monogram" name="properties[Monogram]" /></p>
+              <p>Add Monogram for $10 <input type="checkbox" id="monogram-option" name="monogram-option" /></p>
+              <p class="monogram-text"><label for="monogram">Monogram:</label></p>
+              <p class="monogram-text"><input type="text" id="monogram" name="properties[Monogram]" /></p>
             </li>
           </ul>
 
@@ -237,9 +236,9 @@
 
       $('#monogram-option').change(function() {
           if($(this).is(":checked")) {
-              alert('ADD MONOGRAM!!');
+              $('.monogram-text').show();
           } else {
-            alert('no monogram!');
+            $('.monogram-text').hide();
           }     
       });
 
