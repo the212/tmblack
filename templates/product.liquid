@@ -147,7 +147,7 @@
             <li class="buttons mother-of-pearl"><img src="http://the212.co/tmblack/images/btn3.png" alt="Mother of Pearl"><h4>Mother of Pearl</h4></li>
           </ul>
  
-          <ul>
+          <ul class="monogram">
             <li>
               <p>Add Monogram for $10 <input type="checkbox" id="monogram-option" name="monogram-option" /></p>
               <p class="monogram-text"><label for="monogram">Monogram:</label></p>
@@ -155,7 +155,7 @@
             </li>
           </ul>
 
-          <ul>
+          <ul class="measurements">
             <li>
               <p>Type of Fit: <select id="fit" name="properties[fit]">
                 <option value="slim">Slim</option>
@@ -225,8 +225,13 @@
       $( '#mi-slider' ).catslider();
 
       $('.mi-slider ul li').click(function() {
-        $(this).siblings().removeClass('active');
-        $(this).addClass('active');
+
+        if( $(this).parent('ul').attr('class').split(' ')[0] != 'monogram' || $(this).parent('ul').attr('class').split(' ')[0] != 'measurements' ) {
+
+          $(this).siblings().removeClass('active');
+          $(this).addClass('active');
+
+        }
 
         var option_type = $(this).attr('class').split(' ')[0];
         var option_choice = $(this).attr('class').split(' ')[1];
