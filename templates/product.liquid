@@ -239,10 +239,10 @@
               $('.monogram-text').show();
 
               // Monogram variant
-              $('#productSelect-option-0').val('Custom');
+              $('#productSelect-option-0').val('Custom').trigger('change');
           } else {
             $('.monogram-text').hide();
-            $('#productSelect-option-0').val('None');
+            $('#productSelect-option-0').val('None').trigger('change');
           }     
       });
 
