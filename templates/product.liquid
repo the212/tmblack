@@ -11,6 +11,58 @@
 
   {% include 'breadcrumb' %}
 
+  <h1 itemprop="name">{{ product.title }}</h1>
+
+      <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+        <meta itemprop="priceCurrency" content="{{ shop.currency }}">
+
+        <link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
+
+        <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm" class="form-vertical">
+
+          <select name="id" id="productSelect" class="product-single__variants">
+            {% for variant in product.variants %}
+              {% if variant.available %}
+
+                <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
+
+              {% else %}
+                <option disabled="disabled">
+                  {{ variant.title }} - {{ 'products.product.sold_out' | t }}
+                </option>
+              {% endif %}
+            {% endfor %}
+          </select>
+
+          <span id="ProductPrice" class="h2" itemprop="price">
+            {{ current_variant.price | money }}
+          </span>
+
+          {% if product.compare_at_price_max > product.price %}
+            <p id="ComparePrice">
+              {{ 'products.product.compare_at' | t }} {{ current_variant.compare_at_price | money }}
+            </p>
+          {% endif %}
+
+          <label for="Quantity" class="quantity-selector">{{ 'products.product.quantity' | t }}</label>
+          <input type="number" id="Quantity" name="quantity" value="1" min="1" class="quantity-selector">
+
+          <!-- HIDDEN SHIRT PROPRETIES -->
+
+          <input type="hidden" id="collar" name="properties[collar]" value="not-set">
+          <input type="hidden" id="cuff" name="properties[cuff]" value="not-set">
+          <input type="hidden" id="placket" name="properties[placket]" value="not-set">
+          <input type="hidden" id="pleats" name="properties[pleats]" value="not-set">
+          <input type="hidden" id="pockets" name="properties[pockets]" value="not-set">
+          <input type="hidden" id="yoke" name="properties[yoke]" value="not-set">
+          <input type="hidden" id="buttons" name="properties[buttons]" value="not-set">
+
+          <button type="submit" name="add" id="AddToCart" class="btn">
+            <span id="AddToCartText">{{ 'products.product.add_to_cart' | t }}</span>
+          </button>
+
+      </div>
+
   <div class="container options-container"> 
       <div class="main">
         <div id="mi-slider" class="mi-slider">
@@ -60,18 +112,14 @@
             <li class="buttons plastic-black"><img src="http://the212.co/tmblack/images/btn2.png" alt="Plastic Black"><h4>Plastic Black</h4></li>
             <li class="buttons mother-of-pearl"><img src="http://the212.co/tmblack/images/btn3.png" alt="Mother of Pearl"><h4>Mother of Pearl</h4></li>
           </ul>
-
-          <!-- NOT IS USE 
+ 
           <ul>
             <li>
               <p><label for="monogram">Monogram:</label></p>
               <p><input type="text" id="monogram" name="properties[Monogram]" /></p>
             </li>
           </ul>
-          -->
 
-
-          <!-- NOT IS USE 
           <ul>
             <li>
               <p>Type of Fit: <select id="fit" name="properties[fit]">
@@ -115,7 +163,7 @@
             </li>
           </ul>
 
-          -->
+          </form> <!-- END FORM -->
 
           <nav>
             <a href="#">Collar</a>
@@ -155,79 +203,6 @@
     </div>
 
     <div class="grid__item large--one-half">
-
-      <h1 itemprop="name">{{ product.title }}</h1>
-
-      <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-        <meta itemprop="priceCurrency" content="{{ shop.currency }}">
-
-        <link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
-
-        <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm" class="form-vertical">
-
-          <select name="id" id="productSelect" class="product-single__variants">
-            {% for variant in product.variants %}
-              {% if variant.available %}
-
-                <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
-
-              {% else %}
-                <option disabled="disabled">
-                  {{ variant.title }} - {{ 'products.product.sold_out' | t }}
-                </option>
-              {% endif %}
-            {% endfor %}
-          </select>
-
-          <span id="ProductPrice" class="h2" itemprop="price">
-            {{ current_variant.price | money }}
-          </span>
-
-          {% if product.compare_at_price_max > product.price %}
-            <p id="ComparePrice">
-              {{ 'products.product.compare_at' | t }} {{ current_variant.compare_at_price | money }}
-            </p>
-          {% endif %}
-
-          <label for="Quantity" class="quantity-selector">{{ 'products.product.quantity' | t }}</label>
-          <input type="number" id="Quantity" name="quantity" value="1" min="1" class="quantity-selector">
- 
-          <div>
-            <p><label for="monogram">Monogram:</label></p>
-            <p><input type="text" id="monogram" name="properties[Monogram]" /></p>
-
-            <p>Type of Fit: <select id="fit" name="properties[fit]">
-                <option value="slim">Slim</option>
-                <option value="regular">Regular</option>
-                <option value="loose">Loose</option>
-              </select>
-            </p>
-            <p>Colar: <input type="number" id="colar-size" name="properties[colar-size]" min="10" max="30" value="14" step=".5"></p>
-            <p>Chest: <input type="number" id="chest" name="properties[chest]" min="10" max="30" value="19.5" step=".5"></p>
-            <p>Waist: <input type="number" id="waist" name="properties[waist]" min="10" max="30" value="14" step=".5"></p>
-            <p>Cuff: <input type="number" id="cuff-size" name="properties[cuff-size]" min="10" max="30" value="14" step=".5"></p>
-            <p>Shoulder: <input type="number" id="shoulder" name="properties[shoulder]" min="10" max="30" value="14" step=".5"></p>
-            <p>Sleeve: <input type="number" id="sleeve" name="properties[sleeve]" min="10" max="30" value="14" step=".5"></p>
-            <p>Shirt Length: <input type="number" id="slength" name="properties[length]" min="10" max="30" value="19.5" step=".5"></p>
-            <p>Bicep: <input type="number" id="bicep" name="properties[bicep]" min="10" max="30" value="14" step=".5"></p>
-          </div>
-
-          <!-- HIDDEN SHIRT PROPRETIES -->
-
-          <input type="hidden" id="collar" name="properties[collar]" value="not-set">
-          <input type="hidden" id="cuff" name="properties[cuff]" value="not-set">
-          <input type="hidden" id="placket" name="properties[placket]" value="not-set">
-          <input type="hidden" id="pleats" name="properties[pleats]" value="not-set">
-          <input type="hidden" id="pockets" name="properties[pockets]" value="not-set">
-          <input type="hidden" id="yoke" name="properties[yoke]" value="not-set">
-          <input type="hidden" id="buttons" name="properties[buttons]" value="not-set">
-
-          <button type="submit" name="add" id="AddToCart" class="btn">
-            <span id="AddToCartText">{{ 'products.product.add_to_cart' | t }}</span>
-          </button>
-        </form>
-
-      </div>
 
       <div class="product-description rte" itemprop="description">
         {{ product.description }}
