@@ -226,7 +226,10 @@
 
       $('.mi-slider ul li').click(function() {
 
-        if( $(this).parent('ul').attr('class').split(' ')[0] != 'monogram' || $(this).parent('ul').attr('class').split(' ')[0] != 'measurements' ) {
+        console.log($(this).parent().attr('class').split(' ')[0]);
+        console.log($(this).parent().attr('class'));
+
+        if( $(this).parent().attr('class').split(' ')[0] != 'monogram' || $(this).parent().attr('class').split(' ')[0] != 'measurements' ) {
 
           $(this).siblings().removeClass('active');
           $(this).addClass('active');
