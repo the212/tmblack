@@ -203,6 +203,8 @@
             <p>Bicep: <input type="number" id="bicep" name="properties[bicep]" min="10" max="30" value="14" step=".5"></p>
           </div>
 
+          <input type="hidden" id="collar" name="properties[collar]" value="">
+
           <button type="submit" name="add" id="AddToCart" class="btn">
             <span id="AddToCartText">{{ 'products.product.add_to_cart' | t }}</span>
           </button>
@@ -251,6 +253,11 @@
       $('.mi-slider ul li').click(function() {
         $(this).siblings().removeClass('active');
         $(this).addClass('active');
+
+        var option_type = $(this).attr('class').split(' ')[0];
+        var option_choice = $(this).attr('class').split(' ')[1];
+        $('#' + option_type).val(option_choice);
+
       });
 
 
