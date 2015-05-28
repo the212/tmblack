@@ -24,11 +24,15 @@
             <li class="collar ivy-button-down"><img src="http://the212.co/tmblack/images/colar1.png" alt="Dean Acheson Ivy Button Down"><h4>Dean Acheson Ivy Button Down</h4></li>
             <li class="collar soft-ivy-button-down"><img src="http://the212.co/tmblack/images/colar2.png" alt="Rockefeller soft ivy button down"><h4>Rockefeller soft ivy button down</h4></li>
           </ul>
-          <ul>
-            <li><img src="http://the212.co/tmblack/images/cuffs1.png" alt="img05"><h4>Round Cuffs</h4></li>
-            <li><img src="http://the212.co/tmblack/images/cuffs2.png" alt="img06"><h4>Circle Cuffs</h4></li>
-            <li><img src="http://the212.co/tmblack/images/cuffs1.png" alt="img07"><h4>Rectangle Cuffs</h4></li>
-            <li><img src="http://the212.co/tmblack/images/cuffs2.png" alt="img08"><h4>Cuffs 4</h4></li>
+          <ul class="cuffs">
+            <li class="cuff one-button-rounded"><img src="http://the212.co/tmblack/images/cuffs1.png" alt="One Button Rounded"><h4>One Button Rounded</h4></li>
+            <li class="cuff soft-one-button-rounded"><img src="http://the212.co/tmblack/images/cuffs2.png" alt="Soft One Button Rounded"><h4>Soft One Button Rounded</h4></li>
+            <li class="cuff two-button-rounded"><img src="http://the212.co/tmblack/images/cuffs1.png" alt="Two Button Rounded"><h4>Two Button Rounded</h4></li>
+            <li class="cuff one-button-square"><img src="http://the212.co/tmblack/images/cuffs2.png" alt="One Button Square"><h4>One Button Square</h4></li>
+            <li class="cuff soft-two-button-square"><img src="http://the212.co/tmblack/images/cuffs1.png" alt="Soft Two Button Square"><h4>Soft Two Button Square</h4></li>
+            <li class="cuff one-button-cut"><img src="http://the212.co/tmblack/images/cuffs2.png" alt="One Button Cut"><h4>One Button Cut</h4></li>
+            <li class="cuff two-button-cut"><img src="http://the212.co/tmblack/images/cuffs1.png" alt="Two Button Cut"><h4>Two Button Cut</h4></li>
+            <li class="cuff french-square"><img src="http://the212.co/tmblack/images/cuffs2.png" alt="French Square"><h4>French Square</h4></li>
           </ul>
           <ul>
             <li><img src="http://the212.co/tmblack/images/placket1.png" alt="img09"><h4>Casual</h4></li>
@@ -203,7 +207,8 @@
             <p>Bicep: <input type="number" id="bicep" name="properties[bicep]" min="10" max="30" value="14" step=".5"></p>
           </div>
 
-          <input type="hidden" id="collar" name="properties[collar]" value="">
+          <input type="hidden" id="collar" name="properties[collar]" value="not-set">
+          <input type="hidden" id="cuff" name="properties[cuff]" value="not-set">
 
           <button type="submit" name="add" id="AddToCart" class="btn">
             <span id="AddToCartText">{{ 'products.product.add_to_cart' | t }}</span>
