@@ -131,32 +131,32 @@
             <li class="pleasts side"><img src="http://the212.co/tmblack/images/placket1.png" alt="Side"><h4>Side</h4></li>
             <li class="pleats none"><img src="http://the212.co/tmblack/images/placket1.png" alt="None"><h4>None</h4></li>
           </ul>
-           <ul class="pocketss">
+          <ul class="pocketss">
             <li class="pockets none"><img src="http://the212.co/tmblack/images/placket1.png" alt="None"><h4>None</h4></li>
             <li class="pockets rounded"><img src="http://the212.co/tmblack/images/placket1.png" alt="Rounded"><h4>Rounded</h4></li>
             <li class="pockets angled"><img src="http://the212.co/tmblack/images/placket1.png" alt="Angled"><h4>Angled</h4></li>
             <li class="pockets double-flap-angled"><img src="http://the212.co/tmblack/images/placket1.png" alt="Double Flap Angled"><h4>Double Flap Angled</h4></li>
           </ul>
-           <ul class="yokes">
+          <ul class="yokes">
             <li class="yoke no-yoke"><img src="http://the212.co/tmblack/images/placket1.png" alt="No Yoke"><h4>No Yoke</h4></li>
             <li class="yoke split-yoke"><img src="http://the212.co/tmblack/images/placket1.png" alt="Split Yoke"><h4>Split Yoke</h4></li>
           </ul>
-           <ul class="buttonss">
+          <ul class="buttonss">
             <li class="buttons plastic-white"><img src="http://the212.co/tmblack/images/btn1.png" alt="Plastic White"><h4>Plastic White</h4></li>
             <li class="buttons plastic-black"><img src="http://the212.co/tmblack/images/btn2.png" alt="Plastic Black"><h4>Plastic Black</h4></li>
             <li class="buttons mother-of-pearl"><img src="http://the212.co/tmblack/images/btn3.png" alt="Mother of Pearl"><h4>Mother of Pearl</h4></li>
           </ul>
  
-          <ul class="monogram">
-            <li>
+          <ul>
+            <li class="no-active">
               <p>Add Monogram for $10 <input type="checkbox" id="monogram-option" name="monogram-option" /></p>
               <p class="monogram-text"><label for="monogram">Monogram:</label></p>
               <p class="monogram-text"><input type="text" id="monogram" name="properties[Monogram]" /></p>
             </li>
           </ul>
 
-          <ul class="measurements">
-            <li>
+          <ul>
+            <li class="no-active">
               <p>Type of Fit: <select id="fit" name="properties[fit]">
                 <option value="slim">Slim</option>
                 <option value="regular">Regular</option>
@@ -165,35 +165,35 @@
               </p>
             </li>
 
-            <li>
+            <li class="no-active">
               <p>Colar: <input type="number" id="colar-size" name="properties[collar-size]" min="10" max="30" value="14" step=".5"></p>
             </li>
 
-            <li>
+            <li class="no-active">
               <p>Chest: <input type="number" id="chest" name="properties[chest]" min="10" max="30" value="19.5" step=".5"></p>
             </li>
 
-            <li>
+            <li class="no-active">
               <p>Waist: <input type="number" id="waist" name="properties[waist]" min="10" max="30" value="14" step=".5"></p>
             </li>
 
-            <li>
+            <li class="no-active">
               <p>Cuff: <input type="number" id="cuff-size" name="properties[cuff-size]" min="10" max="30" value="14" step=".5"></p>
             </li>
 
-            <li>
+            <li class="no-active">
               <p>Shoulder: <input type="number" id="shoulder" name="properties[shoulder]" min="10" max="30" value="14" step=".5"></p>
             </li>
 
-            <li>
+            <li class="no-active">
               <p>Sleeve: <input type="number" id="sleeve" name="properties[sleeve]" min="10" max="30" value="14" step=".5"></p>
             </li>
 
-            <li>
+            <li class="no-active">
               <p>Shirt Length: <input type="number" id="slength" name="properties[length]" min="10" max="30" value="19.5" step=".5"></p>
             </li>
 
-            <li>
+            <li class="no-active">
               <p>Bicep: <input type="number" id="bicep" name="properties[bicep]" min="10" max="30" value="14" step=".5"></p>
             </li>
           </ul>
@@ -226,10 +226,7 @@
 
       $('.mi-slider ul li').click(function() {
 
-        console.log($(this).parent().attr('class').split(' ')[0]);
-        console.log($(this).parent().attr('class'));
-
-        if( $(this).parent().attr('class').split(' ')[0] != 'monogram' || $(this).parent().attr('class').split(' ')[0] != 'measurements' ) {
+        if( $(this).attr('class').split(' ')[0] != 'no-active' ) {
 
           $(this).siblings().removeClass('active');
           $(this).addClass('active');
