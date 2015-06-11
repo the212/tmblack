@@ -164,7 +164,6 @@
 
   <div id="NavDrawer" class="drawer drawer--left">
     <div class="drawer__header">
-      <div class="drawer__title h3">{{ 'layout.drawers.browse' | t }}</div>
       <div class="drawer__close js-drawer-close">
         <button type="button" class="icon-fallback-text">
           <span class="icon icon-x" aria-hidden="true"></span>
@@ -174,16 +173,7 @@
     </div>
     <!-- begin mobile-nav -->
     <ul class="mobile-nav">
-      <li class="mobile-nav__item mobile-nav__search">
-        {% include 'search-bar' %}
-      </li>
       {% for link in linklists.main-menu.links %}
-        {% comment %}
-          Create a dropdown menu by naming a linklist the same as a link in the parent nav
-
-          More info on dropdowns:
-            - http://docs.shopify.com/manual/your-website/navigation/create-drop-down-menu
-        {% endcomment %}
         {% assign child_list_handle = link.title | handleize %}
         {% if linklists[child_list_handle].links != blank %}
           <li class="mobile-nav__item{% if link.active %} mobile-nav__item--active{% endif %}" aria-haspopup="true">
@@ -215,9 +205,6 @@
         {% endif %}
       {% endfor %}
 
-      {% comment %}
-        If customer accounts are enabled, provide login and create account links
-      {% endcomment %}
       {% if shop.customer_accounts_enabled %}
         {% if customer %}
           <li class="mobile-nav__item">
