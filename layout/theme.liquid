@@ -125,10 +125,18 @@
 
 
       /****** products grid ******/
+      .grid__item {
+        margin-bottom:-300px;
+      }
+
       .mask {
-          display: block;
-          position: absolute;
-          top: 0;
+          display: none;
+          position: relative;
+          top: -300px;
+          width: 80%;
+          margin: 10%;
+          background-color: white;
+          padding: 50px;
       }
           
       .grid__item a:hover + .mask {
