@@ -470,24 +470,6 @@
     <script>
       jQuery(function($) {
 
-        slider = $("#slider-filters").slideReveal({
-          trigger: $("#filters-trigger"),
-          position: "right"
-        });
-
-        slider2 = $("#slider-shirt").slideReveal({
-          trigger: $("#shirt-trigger"),
-          position: "right"
-        });
-
-        $("#filters-trigger").click(function() {
-            $("#slider-filters").slideReveal("show");
-        });
-
-        $("#slider-shirt").click(function() {
-            $("#shirt-trigger").slideReveal("show");
-        });
-
         ajaxCart.init({
           formSelector: '#AddToCartForm',
           cartContainer: '#CartContainer',
@@ -506,6 +488,22 @@
       });
     </script>
   {% endif %}
+
+  <script>
+    jQuery(function($) {
+
+      $("#slider-filters").slideReveal({
+        trigger: $("#filters-trigger"),
+        position: "right"
+      });
+
+      $("#slider-shirt").slideReveal({
+        trigger: $("#shirt-trigger"),
+        position: "right"
+      });
+      
+    });
+  </script>
 
 </body>
 </html>
