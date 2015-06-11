@@ -54,8 +54,17 @@
         margin-left:5%;
       }
 
+      #menu-trigger {
+        float: left;
+      }
+
+      #shirt-trigger {
+        float: right;
+      }
+
       /**** full bleed ****/
       .wrapper .main-content {
+        clear:both;
         padding: 5% !important;
         max-width: 100% !important;
       } 
@@ -194,27 +203,10 @@
     </ul>
     <!-- //mobile-nav -->
   </div>
-  <div id="CartDrawer" class="drawer drawer--right">
-    <div class="drawer__header">
-      <div class="drawer__title h3">{{ 'cart.general.title' | t }}</div>
-      <div class="drawer__close js-drawer-close">
-        <button type="button" class="icon-fallback-text">
-          <span class="icon icon-x" aria-hidden="true"></span>
-          <span class="fallback-text">{{ 'cart.general.close_cart' | t | json }}</span>
-        </button>
-      </div>
-    </div>
-    <div id="CartContainer"></div>
-  </div>
 
   <div id="ShirtDrawer" class="drawer drawer--right">
     <h1>Your Shirt So Far</h1>
   </div>
-
-  <div id="FiltersDrawer" class="drawer drawer--right">
-    <h1>Fabric Filters</h1>
-  </div>
-
 
   <div id="PageContainer" class="is-moved-by-drawer">
     <header class="site-header" role="banner">
@@ -295,13 +287,8 @@
 
     <div class="drawer-btns">
       <button id='menu-trigger' class="js-drawer-open-left">Menu</button>
-      <br />
-      <button id='filters-trigger' class="js-drawer-open-right">Filters</button>
-      <br />
       <button id='shirt-trigger' class="js-drawer-open-right">Your Shirt So Far</button>
     </div>
-
-
 
     <main class="wrapper main-content" role="main">
 
