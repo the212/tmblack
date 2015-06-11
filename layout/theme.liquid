@@ -97,6 +97,12 @@
         float: right;
       }
 
+      /***** DRAWER RIGHT ******/
+      .drawer--right {
+        width: 400px;
+        right: -400px;
+      }
+
       /**** full bleed ****/
       .wrapper .main-content {
         clear:both;
@@ -164,6 +170,7 @@
 
   <div id="NavDrawer" class="drawer drawer--left">
     <div class="drawer__header">
+      <div class="drawer__title h3">MENU</div>
       <div class="drawer__close js-drawer-close">
         <button type="button" class="icon-fallback-text">
           <span class="icon icon-x" aria-hidden="true"></span>
@@ -234,7 +241,7 @@
   </div>
 
   <div id="ShirtDrawer" class="drawer drawer--right">
-    <h1>Your Shirt So Far</h1>
+    <p>Your Shirt So Far</p>
   </div>
 
   <div id="PageContainer" class="is-moved-by-drawer">
