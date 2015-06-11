@@ -215,7 +215,7 @@
         <a href="/" itemprop="url">{{ shop.name }}</a>
         <a href="/cart" class="site-header__cart-toggle js-drawer-open-right" aria-controls="CartDrawer" aria-expanded="false">My Bag (<span id="CartCount">{{ cart.item_count }}</span>)</a>
 
-        % if shop.customer_accounts_enabled %}
+        {% if shop.customer_accounts_enabled %}
           <div>
             {% if customer %}
               {% if customer.first_name != blank %}
