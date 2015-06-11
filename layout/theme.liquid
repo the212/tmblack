@@ -469,6 +469,25 @@
     {{ 'ajax-cart.js' | asset_url | script_tag }}
     <script>
       jQuery(function($) {
+
+        slider = $("#slider-filters").slideReveal({
+          trigger: $("#filters-trigger"),
+          position: "right"
+        });
+
+        slider2 = $("#slider-shirt").slideReveal({
+          trigger: $("#shirt-trigger"),
+          position: "right"
+        });
+
+        $("#filters-trigger").click(function() {
+            $("#slider-filters").slideReveal("show");
+        });
+
+        $("#slider-shirt").click(function() {
+            $("#shirt-trigger").slideReveal("show");
+        });
+
         ajaxCart.init({
           formSelector: '#AddToCartForm',
           cartContainer: '#CartContainer',
@@ -477,6 +496,8 @@
           cartCostSelector: '#CartCost',
           moneyFormat: {{ shop.money_format | json }}
         });
+
+
       });
 
       jQuery('body').on('ajaxCart.afterCartLoad', function(evt, cart) {
@@ -485,30 +506,6 @@
       });
     </script>
   {% endif %}
-
-  <script>
-    $(function(){
-
-      slider = $("#slider-filters").slideReveal({
-        trigger: $("#filters-trigger"),
-        position: "right"
-      });
-
-      slider2 = $("#slider-shirt").slideReveal({
-        trigger: $("#shirt-trigger"),
-        position: "right"
-      });
-
-      $("#filters-trigger").click(function() {
-          $("#slider-filters").slideReveal("show");
-      });
-
-      $("#slider-shirt").click(function() {
-          $("#shirt-trigger").slideReveal("show");
-      });
-
-    });
-  </script>
 
 </body>
 </html>
