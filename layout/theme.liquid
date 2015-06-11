@@ -51,13 +51,9 @@
   <style>
 
       .drawer-btns {
-        padding:5%;
+        padding:2% 5%;
         border-top:1px solid #ccc;
         border-bottom:1px solid #ccc;
-      }
-
-      #menu-trigger {
-        float: left;
       }
 
       #shirt-trigger {
@@ -212,83 +208,39 @@
 
   <div id="PageContainer" class="is-moved-by-drawer">
     <header class="site-header" role="banner">
+
       <div class="wrapper">
 
-        <div class="grid--full grid--table">
-          <div class="grid__item large--one-half">
-            {% comment %}
-              Use the uploaded logo from theme settings if enabled.
-              Site name gets precedence with H1 tag on homepage, div on other pages.
-            {% endcomment %}
-            {% if template == 'index' %}
-              <h1 class="site-header__logo large--left" itemscope itemtype="http://schema.org/Organization">
-            {% else %}
-              <div class="h1 site-header__logo large--left" itemscope itemtype="http://schema.org/Organization">
-            {% endif %}
-              {% if settings.logo_use_image %}
-                <a href="/" itemprop="url" class="site-header__logo-link">
-                  <img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" itemprop="logo">
-                </a>
+        <button id='menu-trigger' class="js-drawer-open-left">Menu</button>
+        <a href="/" itemprop="url">{{ shop.name }}</a>
+        <a href="/cart" class="site-header__cart-toggle js-drawer-open-right" aria-controls="CartDrawer" aria-expanded="false">My Bag (<span id="CartCount">{{ cart.item_count }}</span>)</a>
+
+        % if shop.customer_accounts_enabled %}
+          <div>
+            {% if customer %}
+              {% if customer.first_name != blank %}
+                {% capture first_name %}<a href="/account">{{ customer.first_name }}</a>{% endcapture %}
+                {{ 'layout.customer.logged_in_as_html' | t: first_name: first_name }}
               {% else %}
-                <a href="/" itemprop="url">{{ shop.name }}</a>
+                <a href="/account">{{ 'layout.customer.account' | t }}</a>
               {% endif %}
-            {% if template == 'index' %}
-              </h1>
+              | {{ 'layout.customer.log_out' | t | customer_logout_link }}
             {% else %}
-              </div>
+              {{ 'layout.customer.log_in' | t | customer_login_link }}
+              {% if shop.customer_accounts_optional %}
+              | {{ 'layout.customer.create_account' | t | customer_register_link }}
+              {% endif %}
             {% endif %}
           </div>
-          <div class="grid__item large--one-half large--text-right medium-down--hide">
-            {% comment %}
-              Show number of items in the cart and total cost in the /cart link
-
-              Ajax Cart Notes:
-                - #cartCount updates the total number of items in the cart
-                - #cartCost updates the total cost of the cart
-                - Documentation:  http://shopify.com/timber#ajax-cart
-            {% endcomment %}
-            <div>
-              <a href="/cart" class="site-header__cart-toggle js-drawer-open-right" aria-controls="CartDrawer" aria-expanded="false">
-                <span class="icon-fallback-text">
-                  <span class="icon icon-cart" aria-hidden="true"></span>
-                </span>
-                {{ 'layout.cart.title' | t }}
-                (<span id="CartCount">{{ cart.item_count }}</span>
-                {{ 'layout.cart.items_count' | t: count: cart.item_count }}
-                <span id="CartCost">{{ cart.total_price | money }}</span>)
-              </a>
-            </div>
-
-            {% comment %}
-              If customer accounts are enabled, provide login and create account links
-            {% endcomment %}
-            {% if shop.customer_accounts_enabled %}
-              <div>
-                {% if customer %}
-                  {% if customer.first_name != blank %}
-                    {% capture first_name %}<a href="/account">{{ customer.first_name }}</a>{% endcapture %}
-                    {{ 'layout.customer.logged_in_as_html' | t: first_name: first_name }}
-                  {% else %}
-                    <a href="/account">{{ 'layout.customer.account' | t }}</a>
-                  {% endif %}
-                  | {{ 'layout.customer.log_out' | t | customer_logout_link }}
-                {% else %}
-                  {{ 'layout.customer.log_in' | t | customer_login_link }}
-                  {% if shop.customer_accounts_optional %}
-                  | {{ 'layout.customer.create_account' | t | customer_register_link }}
-                  {% endif %}
-                {% endif %}
-              </div>
-            {% endif %}
-
-          </div>
-        </div>
+        {% endif %}
 
       </div>
     </header>
 
     <div class="drawer-btns">
-      <button id='menu-trigger' class="js-drawer-open-left">Menu</button>
+      <a href="">1. Choose Fabric</a>
+      <a href="">2. Choose Styles</a>
+      <a href="">3. Choose Size</a>
       <button id='shirt-trigger' class="js-drawer-open-right">Your Shirt So Far</button>
     </div>
 
