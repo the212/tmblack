@@ -2,9 +2,9 @@
 
 <div class="grid-uniform">
 
-  {% for product in collections.frontpage.products limit:4 %}
+  {% for product in collections.frontpage.products limit:6 %}
 
-    {% assign grid_item_width = 'large--one-quarter medium--one-half' %}
+    {% assign grid_item_width = 'large--one-third medium--one-half' %}
     {% include 'product-grid-item' %}
 
   {% else %}
