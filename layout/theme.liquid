@@ -351,10 +351,10 @@
     <div id='slider-left'>Left Menu</div>
     <button id='menu-trigger'>Menu</button>
 
-    <div id='slider-filters'></div>
+    <div id='slider-filters'>Fabric Filters</div>
     <button id='filters-trigger'>Filters</button>
 
-    <div id='slider-shirt'></div>
+    <div id='slider-shirt'>Your Shirt so Far</div>
     <button id='shirt-trigger'>Your Shirt So Far</button>
 
     <main class="wrapper main-content" role="main">
@@ -470,18 +470,22 @@
 
   <script src="http://the212.co/tmblack/js/jquery.slidereveal.js"></script>
   <script>
-    $("slider-left").slideReveal({
-      trigger: $("#menu-trigger")
-    });
+    $(function(){
 
-    $("slider-filters").slideReveal({
-      trigger: $("#filters-trigger"),
-      position: "right"
-    });
+      $("#slider-left").slideReveal({
+        trigger: $("#menu-trigger")
+      });
 
-    $("slider-shirt").slideReveal({
-      trigger: $("#shirt-trigger"),
-      position: "right"
+      $("#slider-filters").slideReveal({
+        trigger: $("#filters-trigger"),
+        position: "right"
+      });
+
+      $("#slider-shirt").slideReveal({
+        trigger: $("#shirt-trigger"),
+        position: "right"
+      });
+      
     });
   </script>
 
