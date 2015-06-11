@@ -20,14 +20,18 @@
     <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
   </a>
 
-  {% assign shirtmeta = product.metafields.shirt %}
+  <div class="mask">
 
-  <ul>
-    <li>Weave: {{ shirtmeta.weave }}</li>
-    <li>Thread Count: {{ shirtmeta.thread }}</li>
-    <li>Mill: {{ shirtmeta.mill }}</li>
-    <li>Thickness: {{ shirtmeta.thickness }}</li>
-    <li>Details: {{ shirtmeta.details }}</li>
-  </ul>
+      {% assign shirtmeta = product.metafields.shirt %}
+
+      <ul>
+        <li>Weave: {{ shirtmeta.weave }}</li>
+        <li>Thread Count: {{ shirtmeta.thread }}</li>
+        <li>Mill: {{ shirtmeta.mill }}</li>
+        <li>Thickness: {{ shirtmeta.thickness }}</li>
+        <li>Details: {{ shirtmeta.details }}</li>
+      </ul>
+        
+  </div>  
 
 </div>
