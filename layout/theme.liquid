@@ -115,6 +115,8 @@
       }
   </style>
 
+  <script src="http://the212.co/tmblack/js/jquery.slidereveal.js"></script>
+
 </head>
 
 {% comment %}
@@ -365,10 +367,10 @@
     </nav>
 
     <div id='slider-left' class="slider">Left Menu</div>
-    <button id='menu-trigger'>Menu</button>
+    <button id='menu-trigger' class="js-drawer-open-left">Menu</button>
 
     <div id='slider-filters' class="slider">Fabric Filters</div>
-    <button id='filters-trigger'>Filters</button>
+    <button id='filters-trigger' class="js-drawer-open-right">Filters</button>
 
     <div id='slider-shirt' class="slider">Your Shirt so Far</div>
     <button id='shirt-trigger'>Your Shirt So Far</button>
@@ -484,7 +486,6 @@
     </script>
   {% endif %}
 
-  <script src="http://the212.co/tmblack/js/jquery.slidereveal.js"></script>
   <script>
     $(function(){
 
