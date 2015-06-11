@@ -50,21 +50,6 @@
 
   <style>
 
-      * {
-        padding: 0px;
-        margin: 0px;
-      }
-      body {
-        background-color: #f1f1f1;
-      }
-      body div{
-        padding: 10px;
-      }
-      .slider{
-        background-color: gray;
-        color: white;
-      }
-
       /**** full bleed ****/
       .wrapper .main-content {
         padding: 5% !important;
@@ -114,8 +99,6 @@
         display: none;
       }
   </style>
-
-  <script src="http://the212.co/tmblack/js/jquery.slidereveal.js"></script>
 
 </head>
 
@@ -369,11 +352,10 @@
 
     <button id='menu-trigger' class="js-drawer-open-left">Menu</button>
 
-    <div id='slider-filters' class="slider">Fabric Filters</div>
     <button id='filters-trigger'>Filters</button>
-
-    <div id='slider-shirt' class="slider">Your Shirt so Far</div>
     <button id='shirt-trigger'>Your Shirt So Far</button>
+
+    
 
     <main class="wrapper main-content" role="main">
 
@@ -488,22 +470,6 @@
       });
     </script>
   {% endif %}
-
-  <script>
-    jQuery(function($) {
-
-      $("#slider-filters").slideReveal({
-        trigger: $("#filters-trigger"),
-        position: "right"
-      });
-
-      $("#slider-shirt").slideReveal({
-        trigger: $("#shirt-trigger"),
-        position: "right"
-      });
-      
-    });
-  </script>
 
 </body>
 </html>
