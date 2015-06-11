@@ -412,12 +412,16 @@
   {% endif %}
 
   <script>
-    $('#filters-trigger').on('click', function() {
-      timber.FiltersDrawer.open();
-    });
+    jQuery(function($) {
 
-    $('#shirt-trigger').on('click', function() {
-      timber.ShirtDrawer.open();
+      $('#filters-trigger').on('click', function() {
+        timber.FiltersDrawer.open();
+      });
+
+      $('#shirt-trigger').on('click', function() {
+        timber.ShirtDrawer.open();
+      });
+      
     });
   </script>
 
