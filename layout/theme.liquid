@@ -50,6 +50,11 @@
 
   <style>
 
+      .drawer-btns {
+        margin-left:5%;
+      }
+
+
       /**** full bleed ****/
       .wrapper .main-content {
         padding: 5% !important;
@@ -289,11 +294,13 @@
       </div>
     </header>
 
-    <button id='menu-trigger' class="js-drawer-open-left">Menu</button>
-    <br />
-    <button id='filters-trigger'>Filters</button>
-    <br />
-    <button id='shirt-trigger'>Your Shirt So Far</button>
+    <div class="drawer-btns">
+      <button id='menu-trigger' class="js-drawer-open-left">Menu</button>
+      <br />
+      <button id='filters-trigger' class="js-drawer-open-right">Filters</button>
+      <br />
+      <button id='shirt-trigger' class="js-drawer-open-right">Your Shirt So Far</button>
+    </div>
 
 
 
@@ -410,20 +417,6 @@
       });
     </script>
   {% endif %}
-
-  <script>
-    jQuery(function($) {
-
-      $('#filters-trigger').on('click', function() {
-        timber.FiltersDrawer.open();
-      });
-
-      $('#shirt-trigger').on('click', function() {
-        timber.ShirtDrawer.open();
-      });
-      
-    });
-  </script>
 
 </body>
 </html>
