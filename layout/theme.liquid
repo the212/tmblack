@@ -50,10 +50,45 @@
 
   <style>
 
+      .header.wrapper {
+          max-width: none;
+          text-align: center;
+      }
+
+      #menu-trigger {
+        float: left;
+        text-transform: uppercase;
+      }
+
+      .site-header__logo {
+        font-size:18px;
+        color:#000;
+        letter-spacing: 2px;
+      }
+
+      .site-header__cart-toggle {
+        float:right;
+        text-transform: uppercase;
+      }
+
+      .login {
+        float:right;
+        text-transform: uppercase;
+      }
+
       .drawer-btns {
         padding:2% 5%;
         border-top:1px solid #ccc;
         border-bottom:1px solid #ccc;
+        text-align: center;
+      }
+
+      .drawer-btns a {
+          margin-right:30px;
+      }
+
+      .drawer-btns a:last-of-type {
+          margin-right:0;
       }
 
       #shirt-trigger {
@@ -212,11 +247,11 @@
       <div class="wrapper">
 
         <button id='menu-trigger' class="js-drawer-open-left">Menu</button>
-        <a href="/" itemprop="url">{{ shop.name }}</a>
-        <a href="/cart" class="site-header__cart-toggle js-drawer-open-right" aria-controls="CartDrawer" aria-expanded="false">My Bag (<span id="CartCount">{{ cart.item_count }}</span>)</a>
+        <a class="site-header__logo" href="/" itemprop="url">{{ shop.name }}</a>
+        <a href="/cart" class="site-header__cart-toggle">My Bag (<span id="CartCount">{{ cart.item_count }}</span>)</a>
 
         {% if shop.customer_accounts_enabled %}
-          <div>
+          <div class="login">
             {% if customer %}
               {% if customer.first_name != blank %}
                 {% capture first_name %}<a href="/account">{{ customer.first_name }}</a>{% endcapture %}
